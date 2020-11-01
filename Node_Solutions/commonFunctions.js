@@ -23,9 +23,9 @@ module.exports = {
             }
         }));
     },
-    outputResultToConsole: function (outputArray) {
+    outputResultToConsole: function (hasFirstLine, outputArray) {
         outputArray.map((output, index) => {
-            if (index === 0) {
+            if (hasFirstLine && index === 0) {
                 console.log(parseInt(output));
             }
             else {

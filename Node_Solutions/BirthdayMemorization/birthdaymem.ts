@@ -1,8 +1,6 @@
-export { };
-  
-const commonFunctions = require('../commonFunctions');
-const convertInputToStringArray = commonFunctions.convertInputToStringArray;
-const outputResultToConsole = commonFunctions.outputResultToConsole;
+const birthdayMemCommonFunctions = require('../commonFunctions');
+const birthdayMemConvertInputToStringArray = birthdayMemCommonFunctions.convertInputToStringArray;
+const birthdayMemOutputResultToConsole = birthdayMemCommonFunctions.outputResultToConsole;
 
 interface IFriend {
   name: string;
@@ -64,12 +62,13 @@ function birthdayMemorization(inputStringArray: string[]): string[] {
   return outputStringArray;
 };
 
-async function runAll() {
-  const inputArray = await convertInputToStringArray();
+async function runAllBirthdayMem() {
+  const inputArray = await birthdayMemConvertInputToStringArray();
   const outputStringArray = birthdayMemorization(inputArray);
-  outputResultToConsole(outputStringArray);
+  const outputHasFirstLine = true;
+  birthdayMemOutputResultToConsole(outputHasFirstLine, outputStringArray);
 }
 
-runAll();
+runAllBirthdayMem();
 
 module.exports = birthdayMemorization;

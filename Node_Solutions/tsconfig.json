@@ -2,7 +2,9 @@
     "compilerOptions": {
         "module": "esnext",
         "sourceMap": true,
-        "target": "ES2017"
+        "target": "ES2017",
+        "lib": ["es6"],
+        "types": ["node"]
     },
     "exclude": [
         "node_modules"

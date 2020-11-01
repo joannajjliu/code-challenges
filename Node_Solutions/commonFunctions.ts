@@ -28,9 +28,9 @@ module.exports = {
     )
   },
   
-  outputResultToConsole: function(outputArray: string[]) {
+  outputResultToConsole: function(hasFirstLine: boolean, outputArray: string[]) {
     outputArray.map((output, index: number) => {
-      if (index === 0) { 
+      if (hasFirstLine && index === 0) { 
         console.log(parseInt(output));
       } else {
         console.log(output);
