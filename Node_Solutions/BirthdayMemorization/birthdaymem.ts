@@ -10,7 +10,7 @@ interface IFriend {
   birthday: string;
 };
 
-function Friend(name: string, priority: number, birthday: string){
+function Friend(name: string, priority: number, birthday: string) {
   this.name = name;
   this.priority = priority;
   this.birthday = birthday;
