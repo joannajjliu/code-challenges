@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+        "module": "esnext",
+        "sourceMap": true,
+        "target": "ES2017"
+    },
+    "exclude": [
+        "node_modules"
+    ]
+}
