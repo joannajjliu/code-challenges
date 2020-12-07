@@ -1,18 +1,18 @@
 const commonFunctions = require('../commonFunctions');
 const convertInputToStringArray = commonFunctions.convertInputToStringArray;
 const outputResultToConsole = commonFunctions.outputResultToConsole;
-function Case(beats, seconds) {
+function CaseHeartRate(beats, seconds) {
     this.beats = beats;
     this.seconds = seconds;
 }
 ;
-function ReturnCase(minimumABPM, calculatedABPM, maximumABPM) {
+function ReturnCaseHeartRate(minimumABPM, calculatedABPM, maximumABPM) {
     this.minimumABPM = minimumABPM;
     this.calculatedABPM = calculatedABPM;
     this.maximumABPM = maximumABPM;
 }
 ;
-function abpmCalculation(beats, seconds) {
+function abpmCalculationHeartRate(beats, seconds) {
     return (60 * beats / seconds).toFixed(4);
 }
 function heartRate(inputStringArray) {
@@ -27,10 +27,10 @@ function heartRate(inputStringArray) {
         else {
             numberOfCasesRead += 1;
             const caseInput = input.split(" ");
-            const newCase = new Case(parseInt(caseInput[0]), parseFloat(caseInput[1]));
+            const newCase = new CaseHeartRate(parseInt(caseInput[0]), parseFloat(caseInput[1]));
             const beats = newCase.beats;
             const seconds = newCase.seconds;
-            const returnCase = new ReturnCase(abpmCalculation(beats - 1, seconds), abpmCalculation(beats, seconds), abpmCalculation(beats + 1, seconds));
+            const returnCase = new ReturnCaseHeartRate(abpmCalculationHeartRate(beats - 1, seconds), abpmCalculationHeartRate(beats, seconds), abpmCalculationHeartRate(beats + 1, seconds));
             outputStringArray.push(`${returnCase.minimumABPM} ${returnCase.calculatedABPM} ${returnCase.maximumABPM}`);
         }
     });

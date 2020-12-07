@@ -4,12 +4,12 @@ const rl = readline.createInterface({
     output: process.stdout
 });
 module.exports = {
-    convertInputToStringArray: function () {
+    convertInputToStringArray: function (hasFirstLine, numberOfLines) {
         const inputStringArray = [];
-        let expectedNextLines = 0;
+        let expectedNextLines = numberOfLines || 0;
         let numberOfExpectedLinesInputted = 0;
         return new Promise(resolve => rl.on('line', (input) => {
-            if (expectedNextLines === 0) {
+            if (expectedNextLines === 0 && hasFirstLine === true) {
                 inputStringArray.push(input);
                 expectedNextLines = parseInt(input);
             }

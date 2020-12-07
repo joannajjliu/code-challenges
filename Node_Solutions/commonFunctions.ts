@@ -6,14 +6,14 @@ const rl = readline.createInterface({
 });
 
 module.exports = {
-  convertInputToStringArray: function(): Promise<string[]> {
+  convertInputToStringArray: function(hasFirstLine: boolean, numberOfLines?: number): Promise<string[]> {
     const inputStringArray: string[] = [];
-    let expectedNextLines: number = 0;
+    let expectedNextLines: number = numberOfLines || 0;
     let numberOfExpectedLinesInputted: number = 0;
   
     return new Promise(resolve =>
       rl.on('line', (input: string) => {
-        if (expectedNextLines === 0) {
+        if (expectedNextLines === 0 && hasFirstLine === true) {
           inputStringArray.push(input);
           expectedNextLines = parseInt(input);
         } else {
@@ -29,7 +29,7 @@ module.exports = {
   },
   
   outputResultToConsole: function(hasFirstLine: boolean, outputArray: string[]) {
-    outputArray.map((output, index: number) => {
+    outputArray.map((output: string, index: number) => {
       if (hasFirstLine && index === 0) { 
         console.log(parseInt(output));
       } else {
